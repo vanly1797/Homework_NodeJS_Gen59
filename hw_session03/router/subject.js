@@ -16,8 +16,9 @@ const subjects = [
     },
 ]
 
-subjectRouter.get('', (req, res) => {
+subjectRouter.post('/', (req, res, next) => {
     res.json(subjects)
+    next()
 })
 
 module.exports = subjectRouter;

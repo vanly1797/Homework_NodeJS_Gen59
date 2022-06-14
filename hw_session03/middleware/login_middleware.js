@@ -6,8 +6,7 @@ const users = [
 
 function loginMiddleWare(req, res, next) {
     const index = users.findIndex((el) => {
-        return (JSON.stringify(el.username) === JSON.stringify(req.body.username) &&
-            JSON.stringify(el.apiKey) === JSON.stringify(req.body.apiKey))
+        return JSON.stringify(el) === JSON.stringify(req.body)
     })
     const isNotLogin = index < 0
     if (isNotLogin) {
@@ -15,7 +14,7 @@ function loginMiddleWare(req, res, next) {
         res.send('Unauthonized')
         return
     }
-    console.log('req from client', req);
+    console.log('Success login');
     next()
 }
 

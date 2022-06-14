@@ -20,8 +20,9 @@ const students = [
 
 ]
 
-studentRouter.get('', (req, res) => {
+studentRouter.post('/', (req, res, next) => {
     res.json(students)
+    next()
 })
 
 module.exports = studentRouter;

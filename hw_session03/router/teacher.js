@@ -19,8 +19,9 @@ const teachers = [
     },
 ]
 
-teacherRouter.get('', (req, res) => {
+teacherRouter.post('/', (req, res, next) => {
     res.json(teachers)
+    next()
 })
 
 module.exports = teacherRouter;
